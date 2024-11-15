@@ -38,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
             SizedBox(height: MediaQuery.of(context).size.height * 0.1),
             Center(
               child: Image.asset(
-                "assets/brand.jpeg",
+                "assets/app_name.png",
                 width: MediaQuery.of(context).size.height * 0.3,
                 height: MediaQuery.of(context).size.height * 0.2,
               ),
