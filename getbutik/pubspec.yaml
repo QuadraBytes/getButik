@@ -70,6 +70,7 @@ flutter:
     - assets/logo.png
     - assets/camera.png
     - assets/image.png
+    - assets/brand.jpeg
     - assets/images.jpg
 
 

@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:getbutik/screens/main_screen.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:getbutik/screens/splash_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -14,7 +15,7 @@ class App extends StatelessWidget {
       title: 'GeButIK',
       debugShowCheckedModeBanner: false,
       navigatorKey: StackedService.navigatorKey,
-      home: const MainScreen(),
+      home: const SplashScreen(),
     );
   }
 }
