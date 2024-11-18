@@ -29,7 +29,7 @@ class HistoryScreen extends StatelessWidget {
                     // height: 160,
                     padding: EdgeInsets.symmetric(horizontal: 12),
                     child: Card(
-                      // elevation: 4,
+                      elevation: 0,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -98,7 +98,7 @@ class HistoryScreen extends StatelessWidget {
                     // height: 160,
                     padding: EdgeInsets.symmetric(horizontal: 12),
                     child: Card(
-                      // elevation: 4,
+                      elevation: 0,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -167,7 +167,7 @@ class HistoryScreen extends StatelessWidget {
                     // height: 160,
                     padding: EdgeInsets.symmetric(horizontal: 12),
                     child: Card(
-                      // elevation: 4,
+                      elevation: 0,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -236,7 +236,7 @@ class HistoryScreen extends StatelessWidget {
                     // height: 160,
                     padding: EdgeInsets.symmetric(horizontal: 8),
                     child: Card(
-                      // elevation: 4,
+                      elevation: 0,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -313,7 +313,7 @@ class HistoryScreen extends StatelessWidget {
                     // height: 160,
                     padding: EdgeInsets.symmetric(horizontal: 8),
                     child: Card(
-                      // elevation: 4,
+                      elevation: 0,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),

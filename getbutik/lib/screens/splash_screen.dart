@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 5), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const MainScreen ()),
+        MaterialPageRoute(builder: (context) => const MainScreen()),
       );
     });
   }
@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 height: MediaQuery.of(context).size.height * 0.3,
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.025),
             Center(
               child: Image.asset(
                 "assets/app_name.png",
