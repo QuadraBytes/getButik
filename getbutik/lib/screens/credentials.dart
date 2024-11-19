@@ -1,6 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:getbutik/components/key_list.dart';
+import 'package:getbutik/components/main_button.dart';
 import 'package:getbutik/components/topic.dart';
+import 'package:getbutik/components/input_container.dart';
 
 class CredentialsScreen extends StatelessWidget {
   const CredentialsScreen({super.key});
@@ -29,37 +32,14 @@ class CredentialsScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-
                     SizedBox(height: 20),
-                    TextField(
-                      decoration: InputDecoration(
-                        fillColor: Color.fromRGBO(224, 224, 224, 1),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide.none),
-                        filled: true,
-                      ),
-                    ),
+                    KeyListContainer(),
                     SizedBox(height: 20),
-                    TextField(
-                      decoration: InputDecoration(
-                        fillColor: Color.fromRGBO(224, 224, 224, 1),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide.none),
-                        filled: true,
-                      ),
-                    ),
+                    KeyListContainer(),
                     SizedBox(height: 20),
-                    TextField(
-                      decoration: InputDecoration(
-                        fillColor: Color.fromRGBO(224, 224, 224, 1),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide.none),
-                        filled: true,
-                      ),
-                    ),
+                    KeyListContainer(),
+                    SizedBox(height: 20),
+                    // KeyListContainer(),
                     SizedBox(height: 20),
                   ]),
             ),
@@ -77,63 +57,13 @@ class CredentialsScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 30),
-                  Text(
-                    'Key',
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
+                  InputContainer(title: 'Key'),
                   SizedBox(height: 10),
-                  TextField(
-                    decoration: InputDecoration(
-                      fillColor: Color.fromRGBO(224, 224, 224, 1),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide.none),
-                      filled: true,
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    'Key Name',
-                    style: TextStyle(
-                      fontSize: 16,
-                      // fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  TextField(
-                    decoration: InputDecoration(
-                      fillColor: Color.fromRGBO(224, 224, 224, 1),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide.none),
-                      filled: true,
-                    ),
-                  ),
+                  InputContainer(title: 'Key Name'),
                   SizedBox(height: 20),
                   Center(
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Save Key',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(0, 0, 0, 1),
-                        ),
-                      ),
-                      style: ButtonStyle(
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        padding: MaterialStateProperty.all(
-                            EdgeInsets.symmetric(horizontal: 60, vertical: 5)),
-                        backgroundColor: MaterialStateProperty.all(
-                            Color.fromRGBO(244, 204, 36, 1)),
-                      ),
+                    child: MainButton(
+                      title: 'Save Key',
                     ),
                   ),
                 ],
