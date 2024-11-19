@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:getbutik/components/side_bar_button.dart';
 import 'package:getbutik/screens/credentials.dart';
 import 'package:getbutik/screens/history.dart';
 import 'package:getbutik/screens/landing.dart';
@@ -67,53 +68,34 @@ class _SideBarState extends State<SideBar> {
               children: [
                 const Divider(),
                 SizedBox(height: 10),
-                ListTile(
-                  leading: const Icon(
-                    Icons.add,
-                    size: 30,
-                  ),
-                  title: const Text('Add Item',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  tileColor: selectedIndex == 0
-                      ? Color.fromRGBO(217, 217, 217, 1)
-                      : null,
-                  onTap: () => onItemTap(0, const LandingScreen()),
+                SideBarButton(
+                  title: 'Add Item',
+                  icon: Icons.add,
+                  onClick: () {
+                    onItemTap(0, const LandingScreen());
+                  },
+                  selectedIndex: selectedIndex,
+                  index: 0,
                 ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.history,
-                    size: 30,
-                  ),
-                  title: const Text('History',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  tileColor: selectedIndex == 1
-                      ? const Color.fromRGBO(217, 217, 217, 1)
-                      : null,
-                  onTap: () => onItemTap(1, const HistoryScreen()),
+                SizedBox(height: 5),
+                SideBarButton(
+                  title: 'History',
+                  icon: Icons.history,
+                  onClick: () {
+                    onItemTap(1, const HistoryScreen());
+                  },
+                  selectedIndex: selectedIndex,
+                  index: 1,
                 ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.key,
-                    size: 30,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  title: const Text('Credentials',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
-                  tileColor: selectedIndex == 2
-                      ? const Color.fromRGBO(217, 217, 217, 1)
-                      : null,
-                  onTap: () => onItemTap(2, const CredentialsScreen()),
+                SizedBox(height: 5),
+                SideBarButton(
+                  title: 'Credentials',
+                  icon: Icons.person,
+                  onClick: () {
+                    onItemTap(2, const CredentialsScreen());
+                  },
+                  selectedIndex: selectedIndex,
+                  index: 2,
                 ),
               ],
             ),
@@ -123,3 +105,4 @@ class _SideBarState extends State<SideBar> {
     );
   }
 }
+

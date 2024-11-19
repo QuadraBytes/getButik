@@ -1,5 +1,11 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:getbutik/components/button.dart';
+import 'package:getbutik/components/image_container.dart';
+import 'package:getbutik/components/input_container.dart';
+import 'package:getbutik/components/long_input_container.dart';
+import 'package:getbutik/components/main_button.dart';
+import 'package:getbutik/components/topic.dart';
 import 'package:image_picker/image_picker.dart';
 
 class LandingScreen extends StatefulWidget {
@@ -44,45 +50,10 @@ class _LandingScreenState extends State<LandingScreen> {
     });
   }
 
-  Widget _buildImageContainer(XFile? image) {
-    final size = MediaQuery.of(context).size;
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          selectedImage = image;
-        });
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          color: Color.fromRGBO(224, 224, 224, 1),
-          borderRadius: BorderRadius.circular(10),
-          border: selectedImage == null
-              ? null
-              : selectedImage == image
-                  ? Border.all(color: Color.fromRGBO(244, 204, 36, 1), width: 3)
-                  : null,
-        ),
-        height: 200,
-        child: Center(
-          child: image != null
-              ? ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.file(
-                    File(image.path),
-                    fit: BoxFit.cover,
-                    width: size.width * 0.24,
-                  ),
-                )
-              : ClipRRect(
-                  child: Image.asset(
-                    'assets/image.png',
-                    fit: BoxFit.contain,
-                    width: size.width * 0.05,
-                  ),
-                ),
-        ),
-      ),
-    );
+  void _selectImage(XFile image) {
+    setState(() {
+      selectedImage = image;
+    });
   }
 
   @override
@@ -98,106 +69,26 @@ class _LandingScreenState extends State<LandingScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Add Item',
-                      style:
-                          TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                    Topic(title: 'Add Item'),
+                    SizedBox(height: 20),
+                    InputContainer(
+                      title: 'Item Name',
                     ),
                     SizedBox(height: 20),
-                    Text(
-                      'Item Name',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    TextField(
-                      decoration: InputDecoration(
-                        fillColor: Color.fromRGBO(224, 224, 224, 1),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide.none),
-                        filled: true,
-                      ),
+                    InputContainer(
+                      title: 'Item Brand',
                     ),
                     SizedBox(height: 20),
-                    Text(
-                      'Item Brand',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    TextField(
-                      decoration: InputDecoration(
-                        fillColor: Color.fromRGBO(224, 224, 224, 1),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide.none),
-                        filled: true,
-                      ),
+                    InputContainer(
+                      title: 'Item Price',
                     ),
                     SizedBox(height: 20),
-                    Text(
-                      'Item Price',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    TextField(
-                      decoration: InputDecoration(
-                        fillColor: Color.fromRGBO(224, 224, 224, 1),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide.none),
-                        filled: true,
-                      ),
+                    LongInputContainer(
+                      title: 'Item Description',
                     ),
                     SizedBox(height: 20),
-                    Text(
-                      'Item Description',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    TextField(
-                      maxLines: 8,
-                      decoration: InputDecoration(
-                        fillColor: Color.fromRGBO(224, 224, 224, 1),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide.none),
-                        filled: true,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Save Item',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(0, 0, 0, 1),
-                        ),
-                      ),
-                      style: ButtonStyle(
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        padding: MaterialStateProperty.all(
-                            EdgeInsets.symmetric(horizontal: 60, vertical: 5)),
-                        backgroundColor: MaterialStateProperty.all(
-                            Color.fromRGBO(244, 204, 36, 1)),
-                      ),
+                    MainButton(
+                      title: 'Save Item',
                     ),
                   ],
                 ),
@@ -253,112 +144,37 @@ class _LandingScreenState extends State<LandingScreen> {
                   Row(
                     children: [
                       Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Main Image',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                            _buildImageContainer(mainImage)
-                          ],
+                        child: ImageContainer(
+                          title: 'Main Image',
+                          onClick: () => _selectImage(mainImage!),
+                          image: mainImage,
+                          selectedImage: selectedImage,
                         ),
                       ),
                       SizedBox(width: 20),
                       Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Detail Image',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            _buildImageContainer(detailImage)
-                          ],
-                        ),
-                      ),
+                          child: ImageContainer(
+                        title: 'Detail Image',
+                        onClick: () => _selectImage(detailImage!),
+                        image: detailImage,
+                        selectedImage: selectedImage,
+                      )),
                     ],
                   ),
                   SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.edit,
-                              color: Color.fromRGBO(0, 0, 0, 1),
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              'Edit Image',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromRGBO(0, 0, 0, 1),
-                              ),
-                            ),
-                          ],
-                        ),
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                          padding: MaterialStateProperty.all(
-                              EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 5)),
-                          backgroundColor: MaterialStateProperty.all(
-                              Color.fromRGBO(244, 204, 36, 1)),
-                        ),
+                      Button(
+                        title: 'Edit Image',
+                        icon: Icons.edit,
+                        onClick: () {},
                       ),
                       SizedBox(width: 20),
-                      ElevatedButton(
-                        onPressed: selectedImage != null
-                            ? () => _deleteImage(selectedImage)
-                            : null,
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.delete,
-                              color: Color.fromRGBO(0, 0, 0, 1),
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              'Delete Image',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromRGBO(0, 0, 0, 1),
-                              ),
-                            ),
-                          ],
-                        ),
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                          padding: MaterialStateProperty.all(
-                              EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 5)),
-                          backgroundColor: MaterialStateProperty.all(
-                              Color.fromRGBO(244, 204, 36, 1)),
-                        ),
+                      Button(
+                        title: 'Delete Image',
+                        icon: Icons.delete,
+                        onClick: () => _deleteImage(selectedImage),
                       ),
                     ],
                   )
@@ -371,3 +187,4 @@ class _LandingScreenState extends State<LandingScreen> {
     );
   }
 }
+

@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:getbutik/components/topic.dart';
 
 class HistoryScreen extends StatelessWidget {
   const HistoryScreen({super.key});
@@ -19,10 +20,7 @@ class HistoryScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Items History',
-                    style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-                  ),
+                 Topic(title: "History"),
                   SizedBox(height: 20),
                   Container(
                     // color: Color.fromRGBO(224, 224, 224, 1),

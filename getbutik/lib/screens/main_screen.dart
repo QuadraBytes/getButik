@@ -23,11 +23,9 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: Row(
         children: [
-          // Sidebar takes up fixed width
           SideBar(
             onItemSelected: (screen) => _navigateTo(screen),
           ),
-          // Main content area
           Expanded(
             child: Navigator(
               key: _navigatorKey,

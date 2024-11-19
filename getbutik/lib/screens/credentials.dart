@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:getbutik/components/topic.dart';
 
 class CredentialsScreen extends StatelessWidget {
   const CredentialsScreen({super.key});
@@ -19,11 +20,7 @@ class CredentialsScreen extends StatelessWidget {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Credentials',
-                      style:
-                          TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-                    ),
+                    Topic(title: "Credentials"),
                     SizedBox(height: 20),
                     Text(
                       'Key List',
@@ -64,7 +61,6 @@ class CredentialsScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 20),
-                    // ElevatedButton(onPressed: () {}, child: const Text('Login'))
                   ]),
             ),
             SizedBox(width: 40),
@@ -85,7 +81,6 @@ class CredentialsScreen extends StatelessWidget {
                     'Key',
                     style: TextStyle(
                       fontSize: 16,
-                      // fontWeight: FontWeight.bold,
                     ),
                   ),
                   SizedBox(height: 10),
